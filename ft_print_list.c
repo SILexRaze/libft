@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_print_list.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/06 20:33:06 by vifonne           #+#    #+#             */
-/*   Updated: 2018/11/15 14:24:55 by vifonne          ###   ########.fr       */
+/*   Created: 2018/11/27 16:24:29 by vifonne           #+#    #+#             */
+/*   Updated: 2019/01/14 17:45:37 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strstr(const char *haystack, const char *needle)
+void	ft_print_list(t_list **begin_list)
 {
-	size_t	i;
-	size_t	n;
-	char	*h_stack;
+	t_list	*tmp;
 
-	i = 0;
-	n = 0;
-	h_stack = (char *)haystack;
-	if (ft_strcmp(needle, "") == 0)
-		return (h_stack);
-	while (h_stack[i])
+	tmp = *begin_list;
+	if (tmp)
 	{
-		while (needle[n] && h_stack[i + n] == needle[n])
-			n++;
-		if (n != ft_strlen(needle))
-			n = 0;
-		else
-			return (h_stack + i);
-		i++;
+		while (tmp)
+		{
+			ft_putendl(tmp->data);
+			tmp = tmp->next;
+		}
+		ft_putchar('\n');
 	}
-	return (NULL);
 }

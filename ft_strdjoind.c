@@ -1,37 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_strdjoind.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/06 20:33:06 by vifonne           #+#    #+#             */
-/*   Updated: 2018/11/15 14:24:55 by vifonne          ###   ########.fr       */
+/*   Created: 2018/12/12 11:56:10 by vifonne           #+#    #+#             */
+/*   Updated: 2018/12/18 12:02:10 by mabouce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strstr(const char *haystack, const char *needle)
+char	*ft_strdjoind(char *s1, char *s2)
 {
-	size_t	i;
-	size_t	n;
-	char	*h_stack;
+	char	*str;
 
-	i = 0;
-	n = 0;
-	h_stack = (char *)haystack;
-	if (ft_strcmp(needle, "") == 0)
-		return (h_stack);
-	while (h_stack[i])
+	if (s2)
 	{
-		while (needle[n] && h_stack[i + n] == needle[n])
-			n++;
-		if (n != ft_strlen(needle))
-			n = 0;
-		else
-			return (h_stack + i);
-		i++;
+		if (!(str = ft_strnew(ft_strlen(s1) + ft_strlen(s2))))
+			exit(0);
+		ft_strcat(str, s1);
+		ft_strcat(str, s2);
+		ft_strdel(&s2);
+		ft_strdel(&s1);
+		return (str);
 	}
-	return (NULL);
+	return (s1);
 }

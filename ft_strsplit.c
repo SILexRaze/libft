@@ -6,7 +6,7 @@
 /*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 01:15:11 by vifonne           #+#    #+#             */
-/*   Updated: 2018/11/08 15:00:30 by vifonne          ###   ########.fr       */
+/*   Updated: 2019/01/02 17:26:05 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,9 @@ static size_t	ft_m_strcpy(char *dst, const char *src, char c)
 char			**ft_strsplit(char const *s, char c)
 {
 	size_t	i;
-	size_t	j;
 	size_t	k;
 	char	**tab;
 
-	j = 0;
 	k = 0;
 	i = 0;
 	if (!s || !(tab = (char **)malloc(sizeof(char *) * ft_nstr(s, c))))

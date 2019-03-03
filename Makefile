@@ -6,7 +6,7 @@
 #    By: vifonne <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 19:05:19 by vifonne           #+#    #+#              #
-#    Updated: 2018/11/14 21:47:52 by vifonne          ###   ########.fr        #
+#    Updated: 2019/01/06 12:33:18 by vifonne          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,38 +28,29 @@ SRCS		=		ft_memcpy.c			ft_bzero.c			ft_memset.c		\
 					ft_putchar_fd.c		ft_putstr_fd.c		ft_putendl_fd.c	\
 					ft_putnbr_fd.c		ft_atoi.c			ft_strsplit.c	\
 					ft_itoa.c			ft_strdjoin.c		ft_create_elem.c\
-					ft_list_pushback.c	ft_list_pushfront.c
+					ft_list_pushback.c	ft_list_pushfront.c get_next_line.c	\
+					ft_print_tab_str.c	ft_print_tab_int.c	ft_max.c		\
+					ft_sqrt.c			ft_split.c			ft_list_size.c	\
+					ft_strjoind.c		ft_list_del.c		ft_strdjoind.c	\
+					ft_print_list.c		ft_ltoi.c			ft_strisdigit.c
 OBJ			=		$(SRCS:.c=.o)
 CC			=		gcc -Wall -Wextra -Werror
 NAME		=		libft.a
-_BOLD=$'\x1b[1m$'
-_UNDER=$'\x1b[4m$'
-_GREY=$'\x1b[30m$'
-_RED=$'\x1b[31m$'
-_GREEN=$'\x1b[32m$'
-_YELLOW=$'\x1b[33m$'
-_BLUE=$'\x1b[34m$'
-_PURPLE=$'\x1b[35m$'
-_CYAN=$'\x1b[36m$'
-_WHITE=$'\x1b[37m$'
-_END=$'\x1b[0m$'
-_REV=$'\x1b[7m$'
 
 all:	$(NAME)
-
-%.o :	%.c ./libft.h
-	@$(CC) -I ./libft.h -c -o $@ $<
-	@echo "$(_END)$(_GREEN)[OK]\t$(_UNDER)$(_YELLOW)COMPILE :$(_END)$(_BOLD)$(_WHITE)\t$<"
 
 $(NAME): $(OBJ)
 	@$(CC) -I ./libft.h -c $(SRCS)
 	@ar rcs $(NAME) $(OBJ)
 
+%.o :	%.c ./libft.h
+	@/bin/echo -n "="
+	@$(CC) -I ./libft.h -c -o $@ $<
+
 clean:
-	@echo "$(_YELLOW)"
-	rm -f $(OBJ)
+	@rm -f $(OBJ)
 
 fclean:	clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re:	fclean $(NAME)
