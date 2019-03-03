@@ -12,6 +12,3 @@ Rebuild of some libc functions and some others usefull functions, we will use th
 - Basic of C
 - libc
 - Generation of a static library
-
-## Date
-08/11/2018
