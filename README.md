@@ -8,7 +8,7 @@ Rebuild of some libc functions and some others usefull functions, we will use th
 - Algorithm
 - Imperative programming
 
-## Goal
+## Goals
 - Basic of C
 - libc
 - Generation of a static library
