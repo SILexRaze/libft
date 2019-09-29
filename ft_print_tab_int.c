@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_print_tab_int.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vifonne <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mabouce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/07 14:45:02 by vifonne           #+#    #+#             */
-/*   Updated: 2018/12/18 11:41:20 by vifonne          ###   ########.fr       */
+/*   Created: 2018/11/11 16:18:45 by mabouce           #+#    #+#             */
+/*   Updated: 2018/12/30 15:55:38 by vifonne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+void	ft_print_tab_int(int *tab, int len)
 {
-	char	*str;
+	int	i;
 
-	if (s1 && s2)
+	i = 0;
+	ft_putchar('|');
+	while (i < len)
 	{
-		if (!(str = ft_strnew(ft_strlen(s1) + ft_strlen(s2))))
-			exit(0);
-		ft_strcat(str, s1);
-		ft_strcat(str, s2);
-		return (str);
+		ft_putnbr(tab[i]);
+		ft_putchar('|');
+		i++;
 	}
-	return (NULL);
+	ft_putchar('\n');
 }
